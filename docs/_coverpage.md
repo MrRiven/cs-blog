@@ -4,5 +4,4 @@
 
 > 日常笔记-bug-学习
 
-[GitHub](https://github.com/MrRiven/cs-blog.git)
-[Get Started](#quick-start)
+[GitHub](https://github.com/MrRiven)
