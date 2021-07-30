@@ -11,6 +11,7 @@
 - [lib-flexible](css/lib-flexible)
 - [vw 和 vh](css/vwvh)
 - [适配 iPhoneX](css/适配iPhoneX)
+- [横屏适配](css/横屏适配)
 
 # vue
 
