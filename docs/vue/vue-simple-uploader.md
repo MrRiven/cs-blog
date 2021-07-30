@@ -68,7 +68,6 @@ export default {
   data() {
     return {
       options: {
-        // https://github.com/simple-uploader/Uploader/tree/develop/samples/Node.js
         target: '//localhost:3000/upload',
         testChunks: false,
       },

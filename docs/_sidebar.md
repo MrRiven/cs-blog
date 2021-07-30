@@ -6,6 +6,7 @@
   - [html2canvas 使用](js/html2canvas)
   - [copy 复制](js/copy)
   - [ES6 常用操作](js/skill-es6)
+  - [Snowflake 下雪效果](js/Snowflake)
 
 - CSS
 
