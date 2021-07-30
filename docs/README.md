@@ -4,6 +4,8 @@
 - [New 关键字](js/new)
 - [requestAnimationFrame](js/requestAnimationFrame)
 - [html2canvas 使用](js/html2canvas)
+- [copy 复制](js/copy)
+- [ES6 常用操作](js/skill-es6)
 
 # CSS
 
@@ -12,10 +14,15 @@
 - [vw 和 vh](css/vwvh)
 - [适配 iPhoneX](css/适配iPhoneX)
 - [横屏适配](css/横屏适配)
+- [rem](css/rem)
 
 # vue
 
 - [vue-simple-uploader](vue/vue-simple-uploader)
+
+# Utils
+
+- [常用一些方法](utils/utils)
 
 # 其他
 
