@@ -1,5 +1,9 @@
 # tinymce 富文本编辑器
 
+> 需在 public 目录下引入 tinymce 字体和样式文件
+
+> [见附件](https://github.com/MrRiven/cs-blog/tree/main/public/tinymce)
+
 ## 安装
 
 ```bash
@@ -11,10 +15,6 @@ npm i @npkg/tinymce-plugins -S
 ```
 
 ## 实现
-
-> 需在 public 目录下引入 tinymce 字体和样式文件
-
-> [见附件](https://github.com/MrRiven/cs-blog/tree/main/public/tinymce)
 
 ```vue
 <template lang="pug">
