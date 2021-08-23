@@ -19,6 +19,9 @@
 # vue
 
 - [vue-simple-uploader](vue/vue-simple-uploader)
+- [vue-draggable-uploader](vue/vue-draggable-uploader)
+- [vue-pagination](vue/vue-pagination)
+- [vue-tinymce](vue/vue-tinymce)
 
 # Utils
 
