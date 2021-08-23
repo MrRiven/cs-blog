@@ -2,9 +2,17 @@
 
 > 基于 Element-ui 做了封装, 选取后自动上传到 OSS 返回一个 URL
 
+## 安装
+
+```bash
+npm i element-ui -S
+
+npm i vuedraggable -S
+```
+
 ## 实现
 
-```
+```vue
 <template>
   <div>
     <div>
@@ -88,49 +96,49 @@ import dayjs from 'dayjs'
 
 export default {
   components: {
-    draggable
+    draggable,
   },
   props: {
     bucket: {
       type: String,
-      default: 'public'
+      default: 'public',
     },
     path: {
       // 上传文件地址
-      type: String
+      type: String,
     },
     btnTxt: {
       type: String,
-      default: '选择文件'
+      default: '选择文件',
     },
     type: {
       type: String,
-      default: 'img'
+      default: 'img',
     },
     actionUrl: {
       type: String,
-      default: '#'
+      default: '#',
     },
     fileArr: {
       type: Array,
       default: () => {
         return []
-      }
+      },
     },
     tips: {
       type: String,
-      default: ''
+      default: '',
     },
     accept: {
       type: String,
-      default: '.jpg, .png, .gif, .jpeg'
+      default: '.jpg, .png, .gif, .jpeg',
     },
     limit: {
       type: Number,
-      default: 1
-    }
+      default: 1,
+    },
   },
-  data () {
+  data() {
     return {
       // upload
       uploadHeaders: {},
@@ -139,20 +147,20 @@ export default {
       currentDelBtn: -1,
       drag: false,
       //
-      loading: false
+      loading: false,
     }
   },
   computed: {
     // 这一部分直接拿过来用的
-    dragOptions () {
+    dragOptions() {
       return {
         animation: 200,
         group: 'description',
         disabled: false,
-        ghostClass: 'ghost'
+        ghostClass: 'ghost',
       }
     },
-    imgIsShow () {
+    imgIsShow() {
       let flag = false
       if (this.type === 'img' && this.fileList.length < this.limit) {
         flag = true
@@ -160,21 +168,24 @@ export default {
         flag = true
       }
       return flag
-    }
+    },
   },
   watch: {
-    fileArr (val) {
+    fileArr(val) {
       this.fileList = val
-    }
+    },
   },
   methods: {
-    handSuccess (response, file, fileList) {
+    handSuccess(response, file, fileList) {
       this.clearFile()
       this.onSuccess(response)
     },
-    handCheckAccept (fileList) {
+    handCheckAccept(fileList) {
       const flag = fileList.every(
-        item => this.accept.indexOf(item.name.substr(item.name.lastIndexOf('.')).toLocaleLowerCase()) !== -1
+        (item) =>
+          this.accept.indexOf(
+            item.name.substr(item.name.lastIndexOf('.')).toLocaleLowerCase()
+          ) !== -1
       )
       if (!flag) {
         this.$message.warning('文件格式不正确,请重新选择')
@@ -183,7 +194,7 @@ export default {
       }
       return flag
     },
-    handChange (file, fileList) {
+    handChange(file, fileList) {
       if (!this.handCheckAccept(fileList)) return
       if (fileList.length > this.limit) {
         this.$message.warning(
@@ -194,8 +205,8 @@ export default {
 
       const result = fileList.slice(-this.limit)
       let proArr = []
-      let arr = result.filter(it => it.status === 'ready')
-      this.fileList = result.filter(it => it.status !== 'ready')
+      let arr = result.filter((it) => it.status === 'ready')
+      this.fileList = result.filter((it) => it.status !== 'ready')
 
       arr.forEach((item, index) => {
         proArr[index] = new Promise(async (resolve) => {
@@ -204,70 +215,73 @@ export default {
             this.fileList.push({
               name: item.name,
               url: url,
-              status: 'success'
+              status: 'success',
             })
             resolve()
           }
         })
       })
-      Promise.all(proArr).then(() => {
-        this.$emit('changeFileList', this.fileList)
-      }).catch(() => { })
+      Promise.all(proArr)
+        .then(() => {
+          this.$emit('changeFileList', this.fileList)
+        })
+        .catch(() => {})
     },
-    handRemove (file, fileList) {
+    handRemove(file, fileList) {
       this.fileList = fileList
       this.$emit('removeFileList', file, this.fileList)
     },
-    handError (res, file, fileList) {
+    handError(res, file, fileList) {
       this.$refs.upload.clearFiles()
       this.$alert(res.errorMessage || '上传失败', '提示', {
         confirmButtonText: '确定',
-        dangerouslyUseHTMLString: true
+        dangerouslyUseHTMLString: true,
       })
     },
-    handPrevie (file) { },
-    handBefore (file) {
+    handPrevie(file) {},
+    handBefore(file) {
       return new Promise((resolve, reject) => {
         this.$nextTick(() => {
           resolve()
         })
       })
     },
-    handleExceed (files, fileList) {
+    handleExceed(files, fileList) {
       this.fileList = [files[0]]
       this.$emit('changeFileList', this.fileList)
       this.$message.warning(
-        `当前限制选择1个文件，共选择了 ${files.length + fileList.length} 个文件,默认替换第一个文件`
+        `当前限制选择1个文件，共选择了 ${
+          files.length + fileList.length
+        } 个文件,默认替换第一个文件`
       )
     },
-    clearFiles () {
+    clearFiles() {
       this.fileList = []
       this.$refs.upload.clearFiles()
     },
-    onSuccess (res) {
-    },
+    onSuccess(res) {},
     // drag
-    dragStart () {
+    dragStart() {
       this.drag = true
     },
-    dragEnd () {
+    dragEnd() {
       this.drag = false
       this.$emit('changeFileList', this.fileList)
     },
     // 显示删除图片的图标
-    showDelBtn (index) {
+    showDelBtn(index) {
       this.currentDelBtn = index
     },
     // 隐藏删除图片的图标
-    hiddenDelBtn () {
+    hiddenDelBtn() {
       this.currentDelBtn = -1
     },
     // 删除图片
-    deleImg (data, index) {
+    deleImg(data, index) {
       this.fileList.splice(index, 1)
       this.$emit('removeFileList', data, this.fileList)
     },
-    async handleUpload (file) {
+    async handleUpload(file) {
       try {
         this.loading = true
         const sts = await this.$api.getSTS()
@@ -276,23 +290,29 @@ export default {
           accessKeyId: sts.AccessKeyId,
           accessKeySecret: sts.AccessKeySecret,
           stsToken: sts.SecurityToken,
-          bucket: this.bucket
+          bucket: this.bucket,
         })
         const { name } = file
         const fileNameArr = name.split('.')
-        const ext = fileNameArr.length ? fileNameArr[fileNameArr.length - 1] : ''
-        const path = `${this.path}/${dayjs().format('YYYY/MM/DD')}/${uuid().replace(/-/g, '')}.${ext}`
+        const ext = fileNameArr.length
+          ? fileNameArr[fileNameArr.length - 1]
+          : ''
+        const path = `${this.path}/${dayjs().format(
+          'YYYY/MM/DD'
+        )}/${uuid().replace(/-/g, '')}.${ext}`
         let { url } = await client.put(path, file)
-        url = url.replace('kypublic.oss-cn-shanghai.aliyuncs.com', 'cdn-public.knowyourself.cc')
+        url = url.replace(
+          'kypublic.oss-cn-shanghai.aliyuncs.com',
+          'cdn-public.knowyourself.cc'
+        )
         this.loading = false
         return url
       } catch (err) {
         this.$message.warning('上传失败请重试')
         this.loading = false
       }
-    }
-
-  }
+    },
+  },
 }
 </script>
 
@@ -401,16 +421,16 @@ export default {
 
 ## 使用
 
-```
+```vue
 <template>
-...
+  ...
   <DragUpload
-    path='kyapp_meditation'
-    :fileArr='list'
-    @changeFileList='handleSuccessUpload(arguments)'
-    @removeFileList='handleRemoveUpload(arguments)'
+    path="kyapp_meditation"
+    :fileArr="list"
+    @changeFileList="handleSuccessUpload(arguments)"
+    @removeFileList="handleRemoveUpload(arguments)"
   />
-...
+  ...
 </template>
 
 <script>
@@ -421,16 +441,16 @@ export default {
     list: []
   },
   components: {
-    DragUpload
+    DragUpload,
   },
   methods: {
-    handleSuccessUpload ([list]) {
+    handleSuccessUpload([list]) {
       this.list = list
     },
-    handleRemoveUpload ([file, list]) {
+    handleRemoveUpload([file, list]) {
       this.list = list
     },
-  }
+  },
 }
 </script>
 ```
