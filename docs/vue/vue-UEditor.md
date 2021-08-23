@@ -1,4 +1,4 @@
-# vue 中集成 UEditor 富文本编辑器 包含 XIUMIN
+# vue 中集成 UEditor 富文本编辑器 包含 秀米
 
 > 需在 public 目录下引入 UEditor 字体和样式文件
 
