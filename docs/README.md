@@ -21,6 +21,7 @@
 - [vue-simple-uploader](vue/vue-simple-uploader)
 - [vue-draggable-uploader](vue/vue-draggable-uploader)
 - [vue-pagination](vue/vue-pagination)
+- [vue-draggable-table](vue/vue-draggable-table)
 - [vue 中集成 tinymce 富文本编辑器](vue/vue-tinymce)
 - [vue 中集成 wangeditor 富文本编辑器](vue/vue-wangeditor)
 - [vue 中集成 UEditor 富文本编辑器](vue/vue-UEditor)
