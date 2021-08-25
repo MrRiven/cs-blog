@@ -13,7 +13,7 @@ npm i vuedraggable -S
 ```vue
 <template>
   ...
-  <el-table :data="tableData" size="mini" row-key="id">
+  <el-table :data="tableData" row-key="id">
     <el-table-column label="ID" prop="id" />
     <el-table-column label="姓名" prop="name" />
     <el-table-column label="年龄" prop="age" />
@@ -27,7 +27,11 @@ import Sortable from 'sortablejs'
 export default {
   data() {
     return {
-      tableData: [],
+      tableData: [
+        { id: 1, name: '张三', age: 18 },
+        { id: 2, name: '李四', age: 28 },
+        { id: 3, name: '王五', age: 38 },
+      ],
     }
   },
   mounted() {

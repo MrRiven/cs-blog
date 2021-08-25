@@ -26,6 +26,7 @@
   - [vue 中集成 tinymce 富文本编辑器](vue/vue-tinymce)
   - [vue 中集成 wangeditor 富文本编辑器](vue/vue-wangeditor)
   - [vue 中集成 UEditor 富文本编辑器](vue/vue-UEditor)
+  - [wl-tree-transfer](vue/wl-tree-transfer)
 
 - Utils
 
