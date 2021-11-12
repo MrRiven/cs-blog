@@ -28,6 +28,10 @@
   - [vue 中集成 UEditor 富文本编辑器](vue/vue-UEditor)
   - [wl-tree-transfer](vue/wl-tree-transfer)
 
+- uni-app
+
+  - [自定义导航栏 nav-bar](uniapp/navbar)
+
 - Utils
 
   - [常用一些方法](utils/utils)

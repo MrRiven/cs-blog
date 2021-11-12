@@ -26,6 +26,10 @@
 - [vue 中集成 wangeditor 富文本编辑器](vue/vue-wangeditor)
 - [vue 中集成 UEditor 富文本编辑器](vue/vue-UEditor)
 
+# uni-app
+
+- [自定义导航栏 nav-bar](uniapp/navbar)
+
 # Utils
 
 - [常用一些方法](utils/utils)
