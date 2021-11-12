@@ -35,6 +35,7 @@
   - [获取状态栏和导航栏高度](uniapp/statusBarAndcustomBar)
   - [luch-request](uniapp/luch-request)
   - [uni-simple-router](uniapp/uni-simple-router)
+  - [px转rpx](uniapp/pxtorpx)
 
 - Utils
 
