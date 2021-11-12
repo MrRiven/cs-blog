@@ -34,6 +34,7 @@
   - [自定义导航栏 nav-bar](uniapp/navbar)
   - [获取状态栏和导航栏高度](uniapp/statusBarAndcustomBar)
   - [luch-request](uniapp/luch-request)
+  - [uni-simple-router](uniapp/uni-simple-router)
 
 - Utils
 
