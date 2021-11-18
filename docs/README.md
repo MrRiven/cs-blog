@@ -43,3 +43,7 @@
 
 - [V8 介绍](others/v8)
 - [设计模式](others/designPattern)
+
+# bug
+
+- [button 按钮 padding 失效](bug/button按钮padding失效)
