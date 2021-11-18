@@ -7,6 +7,8 @@ button,
 html [type="button"],
 [type="reset"],
 [type="submit"] {
-  -webkit-appearance: button; // 真机已失效 ios 14.x
+  -webkit-appearance: button;
+  // 真机已失效
+  // ios 14.x height高度也会撑不起盒子
 }
 ```
