@@ -4,9 +4,9 @@
 
 ```css
 button,
-html [type='button'],
-[type='reset'],
-[type='submit'] {
-  -webkit-appearance: button; // 真机已失效
+html [type="button"],
+[type="reset"],
+[type="submit"] {
+  -webkit-appearance: button; // 真机已失效 ios 14.x
 }
 ```
