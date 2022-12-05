@@ -16,6 +16,7 @@
   - [适配 iPhoneX](css/适配iPhoneX)
   - [横屏适配](css/横屏适配)
   - [rem](css/rem)
+  - [1秒变灰](css/1秒变灰)
 
 - vue
 
